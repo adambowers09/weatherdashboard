@@ -32,7 +32,7 @@ $(document).ready(function () {
         method: "GET",
       }).then(
         function (response) {
-          //Empty the section
+    
           $("#current-weather").empty();
   
           //Clear 404 errors
@@ -233,8 +233,7 @@ $(document).ready(function () {
       $("#previous-searches").removeClass("d-none");
       $("#search-buttons").empty();
   
-      // Print the list
-      for (var i = 0; i < searchedCities.length; i++) {
+        for (var i = 0; i < searchedCities.length; i++) {
         // Create button
         var buttonEl = $("<button>");
         // Add button parameter and text
@@ -248,7 +247,7 @@ $(document).ready(function () {
         }
         city = citySplit.join(" ");
         buttonEl.text(city);
-        // Append the button
+        
         $("#search-buttons").append(buttonEl);
       }
     }
@@ -258,10 +257,10 @@ $(document).ready(function () {
       displayCurrentWeather();
     }
   
-    // FUNCTION CALLS
+    
     init();
   
-    // EVENT HANDLERS
+    
     $("#search").on("submit", searchCity);
     $("#search-buttons").on("click", "button", displayPreviousSearch);
   });
