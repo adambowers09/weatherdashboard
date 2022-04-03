@@ -1,29 +1,29 @@
 #max {
-    color: grey;
+    color: rgb(155, 148, 148);
   }
   
   #message-404 {
-      color: red;
+      color: rgb(228, 72, 72);
   }
   
   #uv-green {
-    background-color: green;
+    background-color: rgb(47, 218, 47);
     color: white;
   }
   
   #uv-yellow {
-    background-color: yellow;
+    background-color: rgb(235, 235, 38);
   }
   
   #uv-orange {
-    background-color: orange;
+    background-color: rgb(238, 169, 41);
   }
   
   #uv-red {
-    background-color: red;
+    background-color: rgb(228, 72, 72);
   }
   
   #uv-purple {
-    background-color: purple;
+    background-color: rgb(243, 22, 243);
     color: white;
   }

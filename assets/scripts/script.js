@@ -1,7 +1,7 @@
 $(document).ready(function () {
     
   
-    // JS VARIABLES
+    // VARIABLES
     var APIKey = "48b7e995118c1a25097d71ab8b23dcb2";
     var city = "";
     var currentLat;
@@ -26,7 +26,7 @@ $(document).ready(function () {
         "&units=imperial&appid=" +
         APIKey;
   
-      // Perform the API query
+      // API query
         $.ajax({
         url: queryURL,
         method: "GET",
@@ -45,7 +45,7 @@ $(document).ready(function () {
           // Add array to localStorage
           localStorage.setItem("searchedCities", JSON.stringify(searchedCities));
   
-          // Create and append heading
+          
           var h1El = $("<h1>");
           var date = new Date(response.dt * 1000);
           var dateString = "(" + date.toLocaleDateString() + ")";
@@ -83,7 +83,7 @@ $(document).ready(function () {
           );
           $("#current-weather").append(windSpeedEl);
   
-          //Call function to create and append UV index
+          //Function to create and append UV index
           getUVIndex(response.coord.lat, response.coord.lon);
           displayForecast(response.coord.lat, response.coord.lon);
         },
@@ -106,7 +106,7 @@ $(document).ready(function () {
         "&appid=" +
         APIKey;
   
-      // Perform the API query
+      // API query
         $.ajax({
         url: queryURL,
         method: "GET",
@@ -144,13 +144,12 @@ $(document).ready(function () {
         "&exclude=current,minutely,hourly,alerts&units=imperial&appid=" +
         APIKey;
   
-      // Perform the API query  
+      // API query  
       $.ajax({
         url: queryURL,
         method: "GET",
       }).then(function (response) {
-        // Create and append the title row
-        // Create and append the h1
+        
         var titleRow = $("<div>");
         titleRow.addClass("row");
         var h1El = $("<h2>");
@@ -158,21 +157,21 @@ $(document).ready(function () {
         titleRow.append(h1El);
         $("#forecast-section").append(titleRow);
   
-        // Add the second row
+        
         var forecastRow = $("<div>");
         forecastRow.addClass("row");
   
-        // In a for loop
+        // For loop
         for (var i = 1; i < 6; i++) {
-          // Create the column
+          
           var colEl = $("<div>");
           colEl.addClass("col bg-primary mx-2 text-white shadow rounded mb-2");
           colEl.attr("style","max-width: 10.5rem");
-          // Create and append the h3
+        
           var date = new Date(response.daily[i].dt * 1000);
           var h3El = $("<h3>").text(date.toLocaleDateString());
           colEl.append(h3El);
-          // Create and append the img icon
+          
           var imgEl = $("<img>");
           imgEl.attr(
             "src",
@@ -181,22 +180,22 @@ $(document).ready(function () {
               ".png"
           );
           colEl.append(imgEl);
-          //Create and append the temp <p>
+          
           var tempMaxEl = $("<p>");
           tempMaxEl.text("High: " + Math.floor(response.daily[i].temp.max) + "°F");
           colEl.append(tempMaxEl);
           var tempMinEl = $("<p>");
           tempMinEl.text("Low: " + Math.floor(response.daily[i].temp.min) + "°F");
           colEl.append(tempMinEl);
-          //Create and append the humidity <p>
+          
           humidityEl = $("<p>");
           humidityEl.text("Humidity: " + response.daily[i].humidity);
           colEl.append(humidityEl);
-          //Append the column
+          
           forecastRow.append(colEl);
         }
   
-        //Append the row
+        
         $("#forecast-section").append(forecastRow);
       });
     }
@@ -229,17 +228,17 @@ $(document).ready(function () {
   
     // Display the previous searches section
     function displaySearchButtons() {
-      // Unhide the section
+    
       $("#previous-searches").removeClass("d-none");
       $("#search-buttons").empty();
   
         for (var i = 0; i < searchedCities.length; i++) {
-        // Create button
+        
         var buttonEl = $("<button>");
-        // Add button parameter and text
+        
         buttonEl.attr("type", "button");
         buttonEl.addClass("list-group-item list-group-item-action");
-        //Convert lowercase city names to title case
+        
         var city = searchedCities[i];
         var citySplit = city.split(" ");
         for (var j = 0; j < citySplit.length; j++) {
